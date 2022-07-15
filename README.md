@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+cấu hình:
+1. prettierrc
+2. babel-plugin-module-resolver
+3. customize-cra
+4. react-app-rewired
+5. sass
+6. normalize.css: cấu hình css mặc định
