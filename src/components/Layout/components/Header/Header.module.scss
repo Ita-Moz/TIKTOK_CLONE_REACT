@@ -1,0 +1,97 @@
+.wrapper {
+    width: 100%;
+    height: var(--default-layout-height-header);
+    box-shadow: 0px 1px 1px rgb(0 0 0/12%);
+    display: flex;
+    justify-content: center;
+}
+.inner {
+    height: 100%;
+    width: var(--default-layout-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 92px;
+    min-height: 46px;
+    width: 380px;
+    input {
+        padding: 12px 16px;
+        width: 252px;
+        height: 100%;
+        background-color: transparent;
+        caret-color: rgba(254, 44, 85, 1);
+        line-height: 22px;
+        font-weight: 400;
+        font-size: 16px;
+        border: none;
+        outline: none;
+    }
+
+    span {
+        display: block;
+        width: 1px;
+        height: 28px;
+        background-color: rgba(22, 24, 35, 0.12);
+        margin: 0px px;
+    }
+}
+.search-btn {
+    cursor: pointer;
+    width: 52px;
+    height: 100%;
+    border-radius: 0px 92px 92px 0px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    .icon-search {
+        font-size: 24px;
+        padding: 12px 16px;
+    }
+    border: none;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 272px;
+}
+.action-upload {
+    background-color: var(--white);
+    min-width: 110px;
+    padding: 5px 10px;
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 10px;
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #f3f1f1;
+    }
+}
+.action-login {
+    background-color: var(--primary);
+    min-width: 110px;
+    font-weight: bold;
+    color: var(--white);
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 10px;
+    border: none;
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+.action-menu {
+    font-size: 25px;
+}

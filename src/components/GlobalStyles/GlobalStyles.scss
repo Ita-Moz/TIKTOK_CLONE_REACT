@@ -3,6 +3,11 @@
 
 :root {
     --primary: #fe2c55;
+    --default-layout-height-header: 60px;
+    --default-layout-width: 1150px;
+    --black: rgba(22, 24, 35, 1);
+    --gray: rgba(22, 24, 35, 0.5);
+    --white: white;
 }
 
 html {
@@ -11,10 +16,19 @@ html {
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+button{
+    cursor: pointer;
 }
