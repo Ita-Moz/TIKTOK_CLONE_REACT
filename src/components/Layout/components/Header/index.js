@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faArrowAltCircleDown, faArrowAltCircleUp, faCircleCheck, faCircleXmark, faSquareCaretDown } from '@fortawesome/free-regular-svg-icons';
+import { faSearch, faPlus, faSpinner, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
     return (
@@ -12,8 +12,8 @@ function Header() {
                 <img className={cx('logo')} src={images.logo} alt="Tiktok" />
                 <div className={cx('search')}>
                     <input type="text" placeholder="Tìm kiếm tài khoản và video" spellCheck={false} />
-                    <FontAwesomeIcon className={'clear'} icon={faCircleXmark} />
-                    <FontAwesomeIcon className={'loading'} icon={faCircleCheck} />
+                    <FontAwesomeIcon className={cx('clear')} icon={faCircleXmark} />
+                    <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                     <span></span>
                     <button className={cx('search-btn')}>
                         <FontAwesomeIcon className={cx('icon-search')} icon={faSearch} />
@@ -25,7 +25,9 @@ function Header() {
                         Tải lên
                     </button>
                     <button className={cx('action-login')}>Đăng nhập</button>
-                    <FontAwesomeIcon className={cx('action-menu')} icon={faSquareCaretDown} />
+                    <button className={cx('btn')}>
+                        <FontAwesomeIcon className={cx('action-menu')} icon={faEllipsisVertical} />
+                    </button>
                 </div>
             </div>
         </header>
