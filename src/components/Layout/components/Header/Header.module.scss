@@ -82,31 +82,6 @@
     align-items: center;
     width: 272px;
 }
-.action-upload {
-    background-color: var(--white);
-    min-width: 110px;
-    padding: 5px 10px;
-    border: 1px solid #a0a0a0;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 10px 10px;
-    &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #f3f1f1;
-    }
-}
-.action-login {
-    background-color: var(--primary);
-    min-width: 110px;
-    font-weight: bold;
-    color: var(--white);
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 10px 10px;
-    border: none;
-    &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
-    }
-}
 .action-menu {
     font-size: 25px;
     background-color: var(--white);

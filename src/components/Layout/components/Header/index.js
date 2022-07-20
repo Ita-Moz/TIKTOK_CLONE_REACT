@@ -9,6 +9,7 @@ import AccountItem from '~/components/AccountItem';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '../../Popper';
+import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -48,11 +49,8 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <button className={cx('action-upload')}>
-                        <FontAwesomeIcon icon={faPlus} />
-                        Tải lên
-                    </button>
-                    <button className={cx('action-login')}>Đăng nhập</button>
+                    <Button outline leftIcon={<FontAwesomeIcon icon={faPlus}/>} >Tải lên</Button>
+                    <Button primary>Đăng Nhập</Button>
                     <button className={cx('btn')}>
                         <FontAwesomeIcon className={cx('action-menu')} icon={faEllipsisVertical} />
                     </button>
