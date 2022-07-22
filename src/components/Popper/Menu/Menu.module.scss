@@ -1,0 +1,23 @@
+// Menu List right
+.menu-list {
+    width: 240px;
+
+    .menu-item {
+        margin: 0;
+        width: 100%;
+        border-radius: 0px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 42px;
+        &:hover {
+            transition: all 0.2s ease-in-out;
+            background-color: var(--color-hover);
+        }
+    }
+}
+.menu-popper{
+    padding: 10px 0px;
+}
+
+// Header title

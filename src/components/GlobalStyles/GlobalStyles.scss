@@ -8,6 +8,8 @@
     --black: rgba(22, 24, 35, 1);
     --gray: rgba(22, 24, 35, 0.5);
     --white: white;
+    --text-color: black;
+    --color-hover: #f5f5f5;
 }
 
 html {
@@ -25,14 +27,19 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
 }
-img{
+img {
     max-width: 100%;
     display: block;
 }
-button{
+button {
     cursor: pointer;
 }
-.btn{
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.btn {
     border: none;
     outline: none;
 }

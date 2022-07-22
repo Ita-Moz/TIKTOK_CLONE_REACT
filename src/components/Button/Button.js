@@ -1,7 +1,6 @@
 import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const cx = classNames.bind(styles);
 
 function Button({
@@ -24,6 +23,7 @@ function Button({
         onClick,
         ...passProps,
     };
+
     if (disabled) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && typeof props[key] === 'function') {
@@ -40,6 +40,7 @@ function Button({
         props.href = href;
     }
     const classes = cx('wrapper', {
+        [className]:className,
         leftIcon,
         primary,
         outline,
@@ -51,7 +52,7 @@ function Button({
     return (
         <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('left-icon')}>{leftIcon}</span>}
-            <span className={cx('title ')}>{children}</span>
+            <span className={cx('title')}>{children}</span>
         </Comp>
     );
 }
