@@ -1,5 +1,7 @@
 import logo from './logo.svg';
+import account from './account.jpeg';
 const images = {
-    logo
+    logo,
+    account
 }
 export default images
