@@ -14,7 +14,11 @@
             transition: all 0.2s ease-in-out;
             background-color: var(--color-hover);
         }
+        &.separate{
+            border-top: 1px solid var(--gray);
+        } 
     }
+
 }
 .menu-popper {
     padding: 10px 0px;

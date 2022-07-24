@@ -43,3 +43,17 @@ a {
     border: none;
     outline: none;
 }
+
+// Custom Tippy
+
+body {
+    .tippy-box {
+        background-color: #545454eb;
+        border-radius: 8px;
+        font-size: 1.6rem;
+        line-height: 22px;
+    }
+    .tippy-arrow {
+        color: #545454eb;
+    }
+}

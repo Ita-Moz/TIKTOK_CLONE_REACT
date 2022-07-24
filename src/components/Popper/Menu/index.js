@@ -8,7 +8,7 @@ import styles from './Menu.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
-function Menu({ children, items = [],onChange }) {
+function Menu({ children, items = [], onChange }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -22,7 +22,7 @@ function Menu({ children, items = [],onChange }) {
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
-                        }else{
+                        } else {
                             onChange(item);
                         }
                     }}
@@ -32,10 +32,13 @@ function Menu({ children, items = [],onChange }) {
     };
     return (
         <Tippy
+            offset={[15, 10]}
             delay={[0, 700]}
-            visible
             interactive
             placement="bottom-start"
+            onHide={() => {
+                setHistory((prev) => prev.slice(0, 1));
+            }}
             render={(atrrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...atrrs}>
                     <PopperWrapper className={cx('menu-popper')}>
@@ -43,7 +46,7 @@ function Menu({ children, items = [],onChange }) {
                             <Header
                                 title="Language"
                                 onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length-1));
+                                    setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
                             />
                         )}
