@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import images from '~/assets/images';
-
+import Image from '../image';
 const cx = classNames.bind(styles);
 function AccountItem() {
-    return (
+    return ( 
         <div className={cx('wrapper')}>
-            <img className={cx('avatar')} src={images.account} alt="avatar" />
+            <Image className={cx('avatar')} src={images.account} alt="avatar" />
             <div className={cx('info')}>
                 <p className={cx('name')}>
                     <span>VanManhUta</span>
