@@ -16,13 +16,26 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [search, setSearch] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
     useEffect(() => {
-        setTimeout(() => {
-            setSearch([1, 2, 3]);
-        }, 0);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearch([]);
+            return;
+        }
+        setLoading(true);
+        fetch(
+            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+                searchValue,
+            )}&type=more`,
+        )
+            .then((res) => res.json())
+            .then((res) => {
+                setSearch(res.data);
+                setLoading(false);
+            });
+    }, [searchValue]);
     return (
         <TippyHeadless
             interactive
@@ -34,10 +47,9 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...atrrs}>
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {search.map((result) => (
+                            <AccountItem key={result.id} data={result} />
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
@@ -56,7 +68,7 @@ function Search() {
                         setSearchValue(e.target.value);
                     }}
                 />
-                {searchValue.length > 0 && (
+                {!!searchValue && !loading && (
                     <FontAwesomeIcon
                         className={cx('clear')}
                         icon={faCircleXmark}
@@ -67,7 +79,7 @@ function Search() {
                     />
                 )}
 
-                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                 <span></span>
                 <button className={cx('search-btn')}>
                     <SearchIcon className={cx('icon-search')} />

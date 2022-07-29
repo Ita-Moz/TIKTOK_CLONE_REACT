@@ -29,7 +29,7 @@
         border: none;
         outline: none;
     }
-    input:not(:placeholder-shown) ~ .search-btn{
+    input:not(:placeholder-shown) ~ .search-btn {
         color: var(--black);
     }
 
@@ -63,4 +63,15 @@
     top: 50%;
     transform: translateY(-50%);
     color: #a7a7ac;
+}
+.loading {
+    animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
