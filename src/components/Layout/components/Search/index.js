@@ -22,6 +22,7 @@ function Search() {
     const debounced = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
+
     useEffect(() => {
         if (!debounced.trim()) {
             setSearch([]);
@@ -29,64 +30,71 @@ function Search() {
         }
         const fetchApi = async () => {
             setLoading(true);
-
             const result = await searchServices.search(debounced);
-
             setSearch(result);
             setLoading(false);
         };
         fetchApi();
     }, [debounced]);
-    return (
-        <TippyHeadless
-            interactive
-            visible={showResult && search.length > 0}
-            onClickOutside={() => {
-                setShowResult(false);
-            }}
-            render={(atrrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...atrrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {search.map((result) => (
-                            <AccountItem key={result.id} data={result} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    type="text"
-                    placeholder="Tìm kiếm tài khoản và video"
-                    spellCheck={false}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
-                    onChange={(e) => {
-                        setSearchValue(e.target.value);
-                    }}
-                />
-                {!!searchValue && !loading && (
-                    <FontAwesomeIcon
-                        className={cx('clear')}
-                        icon={faCircleXmark}
-                        onClick={() => {
-                            setSearchValue('');
-                            inputRef.current.focus();
-                        }}
-                    />
-                )}
 
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <span></span>
-                <button className={cx('search-btn')}>
-                    <SearchIcon className={cx('icon-search')} />
-                </button>
-            </div>
-        </TippyHeadless>
+    const handleChange = (e) => {
+        let searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+    return (
+        // fix warnning Tippy
+        <div>
+            <TippyHeadless
+                appendTo={document.body}
+                interactive
+                visible={showResult && search.length > 0}
+                onClickOutside={() => {
+                    setShowResult(false);
+                }}
+                render={(atrrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...atrrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {search.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
+                )}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        type="text"
+                        placeholder="Tìm kiếm tài khoản và video"
+                        spellCheck={false}
+                        onFocus={() => {
+                            setShowResult(true);
+                        }}
+                        onChange={handleChange}
+                    />
+                    {!!searchValue && !loading && (
+                        <FontAwesomeIcon
+                            className={cx('clear')}
+                            icon={faCircleXmark}
+                            onClick={() => {
+                                setSearchValue('');
+                                inputRef.current.focus();
+                            }}
+                        />
+                    )}
+    
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    <span></span>
+                    <button className={cx('search-btn')}>
+                        <SearchIcon className={cx('icon-search')} />
+                    </button>
+                </div>
+            </TippyHeadless>
+        </div>
     );
 }
 

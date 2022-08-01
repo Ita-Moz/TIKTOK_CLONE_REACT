@@ -23,12 +23,16 @@
 .menu-popper {
     padding: 10px 0px;
 }
+.menu-body{
+    overflow-y: auto;
+}
 
 // Header title
 .header {
     position: relative;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 .back-btn {
     width: 50px;
