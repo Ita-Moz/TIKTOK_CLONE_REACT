@@ -41,7 +41,7 @@ function Button({
         props.href = href;
     }
     const classes = cx('wrapper', {
-        [className]:className,
+        [className]: className,
         leftIcon,
         primary,
         outline,
@@ -71,5 +71,5 @@ Button.propTypes = {
     href: PropTypes.string,
     leftIcon: PropTypes.node,
     onClick: PropTypes.func,
-}
+};
 export default Button;

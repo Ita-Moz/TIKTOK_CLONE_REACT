@@ -31,6 +31,27 @@ function Menu({ children, items = [], onChange }) {
             );
         });
     };
+
+    const renderResult = (atrrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...atrrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && (
+                    <Header
+                        title={current.title}
+                        onBack={() => {
+                            setHistory((prev) => prev.slice(0, prev.length - 1));
+                        }}
+                    />
+                )}
+                <div className={cx('menu-body')}> {renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    const handleResetToFirstPage = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <Tippy
             offset={[15, 10]}
@@ -38,24 +59,8 @@ function Menu({ children, items = [], onChange }) {
             interactive
             hideOnClick={false}
             placement="bottom-start"
-            onHide={() => {
-                setHistory((prev) => prev.slice(0, 1));
-            }}
-            render={(atrrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...atrrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}> {renderItems()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
+            onHide={handleResetToFirstPage}
+            render={renderResult}
         >
             {children}
         </Tippy>
@@ -65,6 +70,6 @@ function Menu({ children, items = [], onChange }) {
 Menu.propTypes = {
     children: PropTypes.node.isRequired,
     items: PropTypes.array,
-    onChange: PropTypes.func
-}
+    onChange: PropTypes.func,
+};
 export default Menu;

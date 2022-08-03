@@ -86,7 +86,7 @@ function Search() {
                             }}
                         />
                     )}
-    
+
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                     <span></span>
                     <button className={cx('search-btn')}>

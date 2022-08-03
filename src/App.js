@@ -16,7 +16,7 @@ function App() {
                             Layout = Fragment;
                         }
                         return (
-                            <Route 
+                            <Route
                                 path={route.path}
                                 element={
                                     <Layout>

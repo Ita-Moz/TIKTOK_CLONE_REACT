@@ -20,7 +20,7 @@
 .primary {
     background-color: var(--primary);
     padding: 10px 10px;
-    color: white;
+    color: white !important;
     &:hover {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
@@ -60,6 +60,6 @@
         background-color: rgba(254, 44, 85, 0.06);
     }
 }
-.left-icon{
+.left-icon {
     font-size: 16px;
 }
