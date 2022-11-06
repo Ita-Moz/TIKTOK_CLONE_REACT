@@ -58,7 +58,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    let currentUser = true;
+    let currentUser = false;
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -127,7 +127,6 @@ function Header() {
                             <Button outline leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                                 Tải lên
                             </Button>
-                            <Button primary>Đăng Nhập</Button>
                         </div>
                     )}
 
